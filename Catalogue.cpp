@@ -61,6 +61,64 @@ void Catalogue::ChercherA(const char*deb,const char*fin)const
         }
     }
 }
+void Catalogue::ChercherB(const char*deb,const char*fin)
+{
+    Creer();
+    int visited[filled];
+    int path[filled];
+    int pathIndex =0;
+    for(int i=0;i<filled;i++)
+    {
+        visited[i]=0;
+    }
+    int start;
+    int destination;
+    for(int i=0;i<filled;i++)
+    {
+        if (!strcmp(Catal[i]->getArrivee(),fin))
+        {
+            destination=i;
+            break;
+        }
+    }
+    for(int i=0;i<filled;i++)
+    {
+        if(!strcmp(Catal[i]->getDepart(),deb))
+        {
+            start=i;
+            printf("Trajets de %s à %s:\n", deb, fin);
+            DFS(visited, start, destination, path, pathIndex);
+            for(int i=0;i<filled;i++)
+            {
+                visited[i]=0;
+            }
+        }
+    }
+    
+    
+}
+void Catalogue::DFS( int *visited, int current, int destination, int path[], int pathIndex) 
+{
+    visited[current] = 1;
+    path[pathIndex] = current;
+    pathIndex++;
+
+    if (current == destination) {
+        // Print the pathmatrice=NULL;
+        for (int i = 0; i < pathIndex; i++) {
+            printf("%s-> %s ", Catal[path[i]]->getDepart(),Catal[path[i]]->getArrivee());
+        }
+        printf("\n");
+    } else {
+        for (int i = 0; i <filled; i++) {
+            if (matrice[current][i] == 1 && !visited[i]) {
+                DFS( visited, i, destination, path, pathIndex);
+            }
+        }
+    }
+    visited[current] = 0; // Backtrack
+}
+
 //-------------------------------------------- Constructeurs - destructeur
 
 
@@ -71,6 +129,8 @@ Catalogue::Catalogue()
     allocated=MAXB;
     filled=0;
     Catal=new Trajet*[sizeof(Trajet*)*allocated];
+    Creer();
+
 #ifdef MAP
     cout << "Appel au constructeur de <Catalogue>" << endl;
 #endif
@@ -80,6 +140,14 @@ Catalogue::~Catalogue()
 // Algorithme :
 //
 {
+    if (matrice !=NULL)
+    {
+        for(int i=0;i<filled;i++)
+        {
+            delete[]matrice[i];
+        }
+        delete []matrice;
+    }
     delete[]Catal;
 #ifdef MAP
     cout << "Appel au destructeur de <Catalogue>" << endl;
@@ -87,5 +155,33 @@ Catalogue::~Catalogue()
 } //----- Fin de ~Catalogue
 
 //------------------------------------------------------------------ PRIVE
+
+void Catalogue::Creer(void)
+{
+    matrice=(int **)new int*[sizeof(int*)*filled];
+    for(int i=0;i<filled;i++)
+    {
+        matrice[i]=new int[sizeof(int)*filled];
+    }
+    for(int i=0;i<filled;i++)
+    {
+        for(int j=0;j<filled;j++)
+        {
+            if(!strcmp(Catal[i]->getArrivee(),Catal[j]->getDepart()))
+            {
+                matrice[i][j]=1;
+                
+            }
+            else
+            {
+                matrice[i][j]=0;
+            }
+        }
+    }
+    
+}
+
+
+
 
 //----------------------------------------------------- Méthodes protégées
