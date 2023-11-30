@@ -63,9 +63,10 @@ void Catalogue::ChercherA(const char*deb,const char*fin)const
 }
 void Catalogue::ChercherB(const char*deb,const char*fin)
 {
+    printf("Trajets de %s à %s:\n", deb, fin);
     Creer();
-    int visited[filled];
-    int path[filled];
+    int* visited=new int[filled];
+    int *path=new int[filled];
     int pathIndex =0;
     for(int i=0;i<filled;i++)
     {
@@ -78,22 +79,23 @@ void Catalogue::ChercherB(const char*deb,const char*fin)
         if (!strcmp(Catal[i]->getArrivee(),fin))
         {
             destination=i;
-            break;
-        }
-    }
-    for(int i=0;i<filled;i++)
-    {
-        if(!strcmp(Catal[i]->getDepart(),deb))
-        {
-            start=i;
-            printf("Trajets de %s à %s:\n", deb, fin);
-            DFS(visited, start, destination, path, pathIndex);
             for(int i=0;i<filled;i++)
             {
-                visited[i]=0;
+                if(!strcmp(Catal[i]->getDepart(),deb))
+                {
+                    start=i;
+                    DFS(visited, start, destination, path, pathIndex);
+                    for(int i=0;i<filled;i++)
+                    {
+                        visited[i]=0;
+                    }
+                }
             }
         }
     }
+    delete[]visited;
+    delete[]path;
+    
     
     
 }
