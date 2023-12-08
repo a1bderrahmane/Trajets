@@ -11,9 +11,8 @@
 //---------------------------------------------------------------- INCLUDE
 
 //-------------------------------------------------------- Include système
-
-#include <iostream>
 using namespace std;
+#include <iostream>
 #include <cstring>
 
 //------------------------------------------------------ Include personnel
@@ -23,45 +22,36 @@ using namespace std;
 
 //----------------------------------------------------------------- PUBLIC
 
-void TrajetSimple::Afficher()const
-{
-    cout<<"départ : "<<Trajet::depart<<endl;
-    cout<<"arrivée : "<<Trajet::arrivee<<endl;
-    cout<<"moyen de transport : "<<moyenTransport<<endl;
-}
 //----------------------------------------------------- Méthodes publiques
-// type TrajetSimple::Méthode ( liste des paramètres )
+void TrajetSimple::Afficher() const
 // Algorithme :
 //
-//{
-//} //----- Fin de Méthode
-
-//------------------------------------------------- Surcharge d'opérateurs
-
+//
+{
+    cout << "Trajet simple: "
+         << "De " << depart << " à " << arrivee << " en " << moyenTransport << endl;
+} //----- Fin de Méthode
 
 //-------------------------------------------- Constructeurs - destructeur
-
-
-TrajetSimple::TrajetSimple(const char* deb,const char*arr,const char*moy):Trajet(deb,arr)
+TrajetSimple::TrajetSimple(const char *dep, const char *arr, const char *MT) : Trajet(dep, arr)
 // Algorithme :
 //
 {
-moyenTransport=new char[strlen(moy)+1];
-strcpy(moyenTransport,moy);
 #ifdef MAP
     cout << "Appel au constructeur de <TrajetSimple>" << endl;
 #endif
-};//----- Fin de TrajetSimple
+    moyenTransport = new char[strlen(MT) + 1];
+    strcpy(moyenTransport, MT);
+} //----- Fin de TrajetSimple
 
 TrajetSimple::~TrajetSimple()
 // Algorithme :
 //
 {
-delete []moyenTransport;
-
 #ifdef MAP
     cout << "Appel au destructeur de <TrajetSimple>" << endl;
 #endif
+    delete[] moyenTransport;
 } //----- Fin de ~TrajetSimple
 
 //------------------------------------------------------------------ PRIVE

@@ -9,6 +9,7 @@
 //---------- Interface de la classe <Trajet> (fichier Trajet.h) ----------------
 #if !defined(TRAJET_H)
 #define TRAJET_H
+
 //--------------------------------------------------- Interfaces utilisées
 
 //------------------------------------------------------------- Constantes
@@ -27,17 +28,33 @@ class Trajet
 
 public:
     //----------------------------------------------------- Méthodes publiques
-    // type Méthode ( liste des paramètres );
+
+    virtual void Afficher() const = 0;
     // Mode d'emploi :
     //
     // Contrat :
-    char* getDepart()const;
-    char* getArrivee()const;
-    virtual void Afficher()const=0;
+    //
 
-    //------------------------------------------- Constructeurs - destructeur
-    
-    Trajet(const char *dep,const char *arr);
+    char *GetArrivee() const;
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
+
+    char *GetDepart() const;
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
+
+    void SetArrivee(const char *arr);
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
+
+    //-------------------------------------------- Constructeurs - destructeur
+    Trajet(const char *dep, const char *arr);
     // Mode d'emploi :
     //
     // Contrat :

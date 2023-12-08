@@ -1,72 +1,62 @@
 /*************************************************************************
-                           Catalogue  -  description
+                           Tableaudynamique  -  description
                              -------------------
     début                : $DATE$
     copyright            : (C) $YEAR$ par $AUTHOR$
     e-mail               : $EMAIL$
 *************************************************************************/
 
-//---------- Interface de la classe <Catalogue> (fichier Catalogue.h) ----------------
-#if !defined(CATALOGUE_H)
-#define CATALOGUE_H
+//---------- Interface de la classe <Tableaudynamique> (fichier Tableaudynamique.h) ----------------
+#if !defined(TABLEAUDYNAMIQUE_H)
+#define TABLEAUDYNAMIQUE_H
 
 //--------------------------------------------------- Interfaces utilisées
 #include "Trajet.h"
-#include "TableauDynamique.h"
+#include "TrajetSimple.h"
+
 //------------------------------------------------------------- Constantes
 
 //------------------------------------------------------------------ Types
 
 //------------------------------------------------------------------------
-// Rôle de la classe <Catalogue>
+// Rôle de la classe <TableauDynamique>
 //
 //
 //------------------------------------------------------------------------
 
-class Catalogue
+class TableauDynamique
 {
     //----------------------------------------------------------------- PUBLIC
 
 public:
     //----------------------------------------------------- Méthodes publiques
-    void ChercherParcoursA(const char *deb, const char *fin) const;
+    void Ajouter(Trajet *&Tr);
     // Mode d'emploi :
     //
     // Contrat :
     //
 
-    void ChercherParcoursB(const char *deb, const char *fin);
+    int GetSize() const;
     // Mode d'emploi :
     //
     // Contrat :
     //
 
-    void Afficher() const;
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-
-    void Inserer(Trajet *Tr);
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-
-    int GetSize();
+    // ------------------------------------------- Surcharge d'opérateurs
+    Trajet *&operator[](int index) const;
     // Mode d'emploi :
     //
     // Contrat :
     //
 
     //-------------------------------------------- Constructeurs - destructeur
-    Catalogue();
+    TableauDynamique();
     // Mode d'emploi :
     //
     // Contrat :
     //
 
-    virtual ~Catalogue();
+    virtual ~TableauDynamique();
     // Mode d'emploi :
     //
     // Contrat :
@@ -76,16 +66,18 @@ public:
 
 protected:
     //----------------------------------------------------- Méthodes protégées
-    TableauDynamique Catal;
-    int **matrice;
-
-private:
-    void Creer(void);
-    void DFS(int *visited, int current, int destination, int path[], int pathIndex, bool *found);
+    void Agrandir(int newTaille);
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
 
     //----------------------------------------------------- Attributs protégés
+    Trajet **tabTrajets;
+    int filled;
+    int allocated;
 };
 
-//-------------------------------- Autres définitions dépendantes de <Catalogue>
+//-------------------------------- Autres définitions dépendantes de <TableauDynamique>
 
-#endif // CATALOGUE_H
+#endif // TABLEAUDYNAMIQUE_H

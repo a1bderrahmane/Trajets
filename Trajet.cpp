@@ -11,8 +11,8 @@
 //---------------------------------------------------------------- INCLUDE
 
 //-------------------------------------------------------- Include système
-#include <iostream>
 using namespace std;
+#include <iostream>
 #include <cstring>
 
 //------------------------------------------------------ Include personnel
@@ -21,53 +21,53 @@ using namespace std;
 //------------------------------------------------------------- Constantes
 
 //----------------------------------------------------------------- PUBLIC
-char* Trajet::getDepart()const
+
+//----------------------------------------------------- Méthodes publiques
+void Trajet::SetArrivee(const char *arr)
+// Algorithme :
+//
+{
+    char *newArrivee = new char[strlen(arr) + 1];
+    strcpy(newArrivee, arr);
+    delete[] arrivee;
+    arrivee = newArrivee;
+} //----- Fin de Trajet
+
+char *Trajet::GetDepart() const
+// Algorithme :
+//
 {
     return depart;
-}
-char* Trajet::getArrivee()const
+} //----- Fin de Trajet
+
+char *Trajet::GetArrivee() const
+// Algorithme :
+//
 {
     return arrivee;
-}
-//----------------------------------------------------- Méthodes publiques
-// type Trajet::Méthode ( liste des paramètres )
-// Algorithme :
-//
-//{
-//} //----- Fin de Méthode
-
-//------------------------------------------------- Surcharge d'opérateurs
-
+} //----- Fin de Trajet
 
 //-------------------------------------------- Constructeurs - destructeur
-
-
-Trajet::Trajet(const char *dep,const char *arr) 
+Trajet::Trajet(const char *dep, const char *arr)
 // Algorithme :
 //
 {
-depart=new char[strlen(dep)+1];
-strcpy(depart,dep);
-
-arrivee=new char[strlen(arr)+1];
-strcpy(arrivee,arr);
 #ifdef MAP
     cout << "Appel au constructeur de <Trajet>" << endl;
 #endif
+    depart = new char[strlen(dep) + 1];
+    arrivee = new char[strlen(arr) + 1];
+    strcpy(depart, dep);
+    strcpy(arrivee, arr);
 } //----- Fin de Trajet
 
 Trajet::~Trajet()
 // Algorithme :
 //
 {
-delete []depart;
-delete []arrivee;
-
 #ifdef MAP
     cout << "Appel au destructeur de <Trajet>" << endl;
 #endif
+    delete[] depart;
+    delete[] arrivee;
 } //----- Fin de ~Trajet
-
-//------------------------------------------------------------------ PRIVE
-
-//----------------------------------------------------- Méthodes protégées

@@ -12,6 +12,8 @@
 
 //--------------------------------------------------- Interfaces utilisées
 #include "Trajet.h"
+#include "TrajetSimple.h"
+#include "TableauDynamique.h"
 
 //------------------------------------------------------------- Constantes
 
@@ -29,19 +31,27 @@ class TrajetCompose : public Trajet
 
 public:
     //----------------------------------------------------- Méthodes publiques
-    // type Méthode ( liste des paramètres );
+    //----------------------------------------------------- Méthodes publiques
+    void Afficher() const;
     // Mode d'emploi :
     //
     // Contrat :
     //
-    void Afficher(void)const;
-    void Inserer(Trajet*tr);
-    //------------------------------------------------- Surcharge d'opérateurs
 
+    int GetSize() const;
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
+
+    int AjouterTrajet(const char *MT, const char *dep, const char *arr);
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
 
     //-------------------------------------------- Constructeurs - destructeur
-    
-    TrajetCompose(const char*dep,const char*arr);
+    TrajetCompose(const char *MT, const char *dep, const char *arr);
     // Mode d'emploi :
     //
     // Contrat :
@@ -59,10 +69,7 @@ protected:
     //----------------------------------------------------- Méthodes protégées
 
     //----------------------------------------------------- Attributs protégés
-    Trajet **tab ;
-    int filled;
-    int allocated;
-
+    TableauDynamique tabTrajets;
 };
 
 //-------------------------------- Autres définitions dépendantes de <TrajetCompose>

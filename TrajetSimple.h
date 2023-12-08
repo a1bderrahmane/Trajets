@@ -25,37 +25,36 @@
 
 class TrajetSimple : public Trajet
 {
-  public:  //----------------------------------------------------------------- PUBLIC
-    void Afficher()const;
+  //----------------------------------------------------------------- PUBLIC
 
-    //----------------------------------------------------- Méthodes publiques
-    // type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
+public:
+  //----------------------------------------------------- Méthodes publiques
+  void Afficher() const;
+  // Mode d'emploi :
+  //
+  // Contrat :
+  //
 
+  //-------------------------------------------- Constructeurs - destructeur
+  TrajetSimple(const char *MT, const char *dep, const char *arr);
+  // Mode d'emploi :
+  //
+  // Contrat :
+  //
 
-    //-------------------------------------------- Constructeurs - destructeur
-    TrajetSimple(const char* dep,const char*arr,const char*moy);
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
+  virtual ~TrajetSimple();
+  // Mode d'emploi :
+  //
+  // Contrat :
+  //
 
-    virtual ~TrajetSimple();
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-
-    //------------------------------------------------------------------ PRIVE
+  //------------------------------------------------------------------ PRIVE
 
 protected:
-    //----------------------------------------------------- Méthodes protégées
+  //----------------------------------------------------- Méthodes protégées
 
-    //----------------------------------------------------- Attributs protégés
-    char * moyenTransport;
+  //----------------------------------------------------- Attributs protégés
+  char *moyenTransport;
 };
 
 //-------------------------------- Autres définitions dépendantes de <TrajetSimple>

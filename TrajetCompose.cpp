@@ -13,7 +13,8 @@
 //-------------------------------------------------------- Include système
 using namespace std;
 #include <iostream>
-#define MAX 1000
+#include <cstring>
+
 //------------------------------------------------------ Include personnel
 #include "TrajetCompose.h"
 
@@ -22,50 +23,66 @@ using namespace std;
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
-void TrajetCompose::Inserer(Trajet*tr)
+void TrajetCompose::Afficher() const
+// Algorithme :
+//
+//
 {
-    if(allocated==filled){
-        allocated*=2;
-        Trajet** tab2=new Trajet*[allocated];
-        for(int i=0;i<filled;i++){
-            tab2[i]=tab[i];
+    cout << "Trajet composé: " << endl;
+    int i;
+    for (i = 0; i < tabTrajets.GetSize(); i++)
+    {
+        cout << "    "
+             << "- ";
+        tabTrajets[i]->Afficher();
+    }
+} //----- Fin de Méthode
+
+int TrajetCompose::GetSize() const
+// Algorithme :
+//
+//
+{
+    return tabTrajets.GetSize();
+} //----- Fin de Méthode
+
+int TrajetCompose::AjouterTrajet(const char *dep, const char *arr, const char *MT)
+// Algorithme :
+//
+//
+{
+#ifdef MAP
+    cout << "Ajout d'un trajet à <TrajetCompose>" << endl;
+#endif
+    if (tabTrajets.GetSize() != 1)
+    {
+        if (strcmp(tabTrajets[tabTrajets.GetSize() - 1]->GetArrivee(), dep))
+        {
+            return 0; // Pas de correspondance du départ avec l'arrivée du trajet précédent.}
         }
-        tab=tab2;
-        delete []tab2;
     }
-    tab[filled]=tr;
-    filled ++;
-}
-
-void TrajetCompose::Afficher(void)const
-{
-    for (int i=0;i<filled;i++){
-        cout<<"Le trajet intermédiaire "<<i<<" est : "<<endl;
-        tab[i]->Afficher();
-    }
-}
-
+    Trajet *ts = new TrajetSimple(dep, arr, MT);
+    tabTrajets.Ajouter(ts);
+    SetArrivee(arr);
+    return 1;
+} //----- Fin de Méthode
 
 //-------------------------------------------- Constructeurs - destructeur
-
-
-TrajetCompose::TrajetCompose(const char*dep,const char*arr):Trajet(dep,arr)
+TrajetCompose::TrajetCompose(const char *dep, const char *arr, const char *MT) : Trajet(dep, arr)
+// Algorithme :
+//
 {
-    allocated=MAX;
-    filled=0;
-    tab = new Trajet*[sizeof(Trajet*)*allocated];
-    
-    
 #ifdef MAP
     cout << "Appel au constructeur de <TrajetCompose>" << endl;
 #endif
+    Trajet *ts = new TrajetSimple(dep, arr, MT);
+    tabTrajets.Ajouter(ts);
 } //----- Fin de TrajetCompose
 
 TrajetCompose::~TrajetCompose()
 // Algorithme :
 //
 {
-delete[]tab;
 #ifdef MAP
     cout << "Appel au destructeur de <TrajetCompose>" << endl;
 #endif
