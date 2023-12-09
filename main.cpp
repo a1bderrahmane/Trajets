@@ -27,13 +27,28 @@ int main()
         cout << "    4: Chercher un parcours simple" << endl;
         cout << "    5: Chercher un parcours composé de plusieurs trajets différents" << endl;
         cout << "    6: Quitter l'application" << endl;
+
         int choix;
-        cin >> choix;
-        while (cin.fail() || choix > 6 || choix < 1)
+        while (true)
         {
-            cout << endl;
-            cout << "Erreur de saisie, entrez un nombre entre 1 et 4" << endl;
             cin >> choix;
+            if (cin.fail())
+            {
+                cout << endl;
+                cout << "Erreur de saisie, entrez un nombre entre 1 et 6" << endl;
+                cin.clear();
+                cin.ignore(100, '\n');
+            }
+            else if (
+                choix > 6 || choix < 1)
+            {
+                cout << endl;
+                cout << "Erreur de saisie, entrez un nombre entre 1 et 6" << endl;
+            }
+            else
+            {
+                break;
+            }
         }
 
         switch (choix)
