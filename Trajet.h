@@ -31,40 +31,33 @@ public:
 
     virtual void Afficher() const = 0;
     // Mode d'emploi :
-    //
-    // Contrat :
-    //
+    //Affichage d'un trajet
+    
 
     char *GetArrivee() const;
     // Mode d'emploi :
-    //
-    // Contrat :
-    //
+    //Renvoie l'arrivée du trajet
+    
 
     char *GetDepart() const;
     // Mode d'emploi :
-    //
-    // Contrat :
-    //
+    //renvoie le depart du trajet
+    
 
     void SetArrivee(const char *arr);
     // Mode d'emploi :
-    //
-    // Contrat :
-    //
+    // affecte à l'attribut arrivée une valeur arr
 
     //-------------------------------------------- Constructeurs - destructeur
     Trajet(const char *dep, const char *arr);
     // Mode d'emploi :
-    //
-    // Contrat :
-    //
+    //Constructeur de la classe trajet
+    
 
     virtual ~Trajet();
     // Mode d'emploi :
-    //
-    // Contrat :
-    //
+    //Destructeur de Trajet
+    
 
     //------------------------------------------------------------------ PRIVE
 
