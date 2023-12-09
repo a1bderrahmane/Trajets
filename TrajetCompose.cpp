@@ -53,7 +53,7 @@ int TrajetCompose::AjouterTrajet(const char *dep, const char *arr, const char *M
 // Si la correspondance est trouvée, ajoute le nouveau trajet à la liste et met à jour l'arrivée de l'objet `TrajetCompose`.
 // Si la correspondance n'est pas trouvée, la méthode retourne 0 sans ajouter le nouveau trajet.
 // Si la liste est vide, ajoute le nouveau trajet sans vérifier la correspondance.
-// Retourne 1 si le nouveau trajet a été ajouté avec succès.
+// Retourne 1 si le nouveau trajet a été ajouté avec succès
 {
 #ifdef MAP
     cout << "Ajout d'un trajet à <TrajetCompose>" << endl;
