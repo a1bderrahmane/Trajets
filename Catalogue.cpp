@@ -138,7 +138,7 @@ Catalogue::Catalogue()
 #ifdef MAP
     cout << "Appel au constructeur de <Catalogue>" << endl;
 #endif
-    matrice = (int **)new int *[sizeof(int *)];
+    matrice = nullptr;
 } //----- Fin de Catalogue
 
 Catalogue::~Catalogue()
@@ -148,7 +148,7 @@ Catalogue::~Catalogue()
 #ifdef MAP
     cout << "Appel au destructeur de <Catalogue>" << endl;
 #endif
-    if (matrice != NULL)
+    if (matrice != nullptr)
     {
         for (int i = 0; i < Catal.GetSize(); i++)
         {
@@ -163,7 +163,6 @@ void Catalogue::Creer(void)
 // Algorithme :
 //
 {
-    delete[] matrice;
     matrice = (int **)new int *[sizeof(int *) * Catal.GetSize()];
     for (int i = 0; i < Catal.GetSize(); i++)
     {
