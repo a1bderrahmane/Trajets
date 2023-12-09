@@ -154,6 +154,8 @@ int main()
             cout << endl;
 
             C.ChercherParcoursA(dep, arr);
+            delete[] dep;
+            delete[] arr;
             break;
         }
 
@@ -178,8 +180,8 @@ int main()
             cout << endl;
 
             C.ChercherParcoursB(dep, arr);
-                delete dep;
-            delete arr;
+            delete[] dep;
+            delete[] arr;
             break;
         }
 
