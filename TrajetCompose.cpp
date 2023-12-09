@@ -40,7 +40,7 @@ void TrajetCompose::Afficher() const
 
 int TrajetCompose::GetSize() const
 // Algorithme :
-//
+//Utilise la méthode GetSize() de la classe TableauDynamique pour avoir le nombre d'éléments de tabTrajets
 //
 {
     return tabTrajets.GetSize();
@@ -48,8 +48,12 @@ int TrajetCompose::GetSize() const
 
 int TrajetCompose::AjouterTrajet(const char *dep, const char *arr, const char *MT)
 // Algorithme :
-//
-//
+// Ajoute un nouveau trajet à la fin de la liste de trajets.
+// Si la liste contient plus qu'un trajet,elle vérifie si l'arrivée du nouveau trajet correspond à l'arrivée du dernier trajet de la liste.
+// Si la correspondance est trouvée, ajoute le nouveau trajet à la liste et met à jour l'arrivée de l'objet `TrajetCompose`.
+// Si la correspondance n'est pas trouvée, la méthode retourne 0 sans ajouter le nouveau trajet.
+// Si la liste est vide, ajoute le nouveau trajet sans vérifier la correspondance.
+// Retourne 1 si le nouveau trajet a été ajouté avec succès.
 {
 #ifdef MAP
     cout << "Ajout d'un trajet à <TrajetCompose>" << endl;
