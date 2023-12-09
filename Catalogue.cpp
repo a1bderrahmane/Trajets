@@ -148,7 +148,7 @@ Catalogue::~Catalogue()
 #ifdef MAP
     cout << "Appel au destructeur de <Catalogue>" << endl;
 #endif
-    if (!matrice)
+    if (matrice != nullptr)
     {
         for (int i = 0; i < Catal.GetSize(); i++)
         {
