@@ -31,23 +31,19 @@ public:
   //----------------------------------------------------- Méthodes publiques
   void Afficher() const;
   // Mode d'emploi :
-  //
-  // Contrat :
-  //
+  //Affichage du départ et de l'arrivée et du moyen de transport
+  
 
   //-------------------------------------------- Constructeurs - destructeur
   TrajetSimple(const char *MT, const char *dep, const char *arr);
   // Mode d'emploi :
-  //
-  // Contrat :
-  //
+  //Crée un trajet simple avec un départ , une arrivée , et un moyen de transport
+  
 
   virtual ~TrajetSimple();
   // Mode d'emploi :
-  //
-  // Contrat :
-  //
-
+  //Libére la mémoire allouée dynamiquement aux attributs de la classe
+  
   //------------------------------------------------------------------ PRIVE
 
 protected:
