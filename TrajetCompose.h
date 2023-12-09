@@ -21,8 +21,10 @@
 
 //------------------------------------------------------------------------
 // Rôle de la classe <TrajetCompose>
-//
-//
+// La classe TrajetCompose hérite publiquement de Trajet 
+// Un trajet composé est un trajet dont la ville d'arrivée d'un trajet simple doit
+// correspondre à la ville de départ du trajet suivant
+
 //------------------------------------------------------------------------
 
 class TrajetCompose : public Trajet
@@ -34,34 +36,30 @@ public:
     //----------------------------------------------------- Méthodes publiques
     void Afficher() const;
     // Mode d'emploi :
-    //
-    // Contrat :
-    //
+    // Parcours de Tabtrajets des trajetsSimple composants un trajetCompose
+    // pour les afficher un à un sur la sortie standard avec leurs
+    // caractéristiques (villes d'arrivée, de départ, et transport)
+    
 
     int GetSize() const;
     // Mode d'emploi :
-    //
-    // Contrat :
-    //
+    // Récuperer la taille de Tabtrajets
 
     int AjouterTrajet(const char *MT, const char *dep, const char *arr);
     // Mode d'emploi :
-    //
-    // Contrat :
-    //
-
+    //Ajout d'un trajetSimple à Tabtrajets pour composer un trajetCompose
+    
+    
     //-------------------------------------------- Constructeurs - destructeur
     TrajetCompose(const char *MT, const char *dep, const char *arr);
     // Mode d'emploi :
-    //
-    // Contrat :
-    //
+    // Crée un trajet compose à partir de trajet simple 
+    // avec un départ , une arrivée , et un moyen de transport
+    
 
     virtual ~TrajetCompose();
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
+    // Mode d'emploi :   
+    // Libére la mémoire allouée dynamiquement aux attributs de la classe
 
     //------------------------------------------------------------------ PRIVE
 
