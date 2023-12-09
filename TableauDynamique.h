@@ -20,8 +20,7 @@
 
 //------------------------------------------------------------------------
 // Rôle de la classe <TableauDynamique>
-//
-//
+// La classe tableau dynamique implémente une structure de tableau dynamique, utilisée par Catalogue et par TrajetCompose
 //------------------------------------------------------------------------
 
 class TableauDynamique
