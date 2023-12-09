@@ -178,6 +178,8 @@ int main()
             cout << endl;
 
             C.ChercherParcoursB(dep, arr);
+                delete dep;
+            delete arr;
             break;
         }
 
