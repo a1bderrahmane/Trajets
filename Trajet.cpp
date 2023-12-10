@@ -1,9 +1,12 @@
 /*************************************************************************
                            Trajet  -  description
                              -------------------
-    début                : $DATE$
-    copyright            : (C) $YEAR$ par $AUTHOR$
-    e-mail               : $EMAIL$
+    début                : 22/11/2023
+    copyright            : (C) 2023 par DRAVET Eléonore, BOUZIANE Abderrahmane, WIRANE Hamza, VIALLETON Rémi
+    e-mail               : eleonore.dravet@insa-lyons.fr
+                           abderrahmane.bouziane@insa-lyon.fr
+                           hamza.wirane@insa-lyon.fr
+                           remi.vialleton@insa-lyon.fr
 *************************************************************************/
 
 //---------- Réalisation de la classe <Trajet> (fichier Trajet.cpp) ------------

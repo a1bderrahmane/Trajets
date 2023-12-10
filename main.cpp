@@ -1,11 +1,26 @@
+/*************************************************************************
+                           Main  -  description
+                             -------------------
+    début                : 22/11/2023
+    copyright            : (C) 2023 par DRAVET Eléonore, BOUZIANE Abderrahmane, WIRANE Hamza, VIALLETON Rémi
+    e-mail               : eleonore.dravet@insa-lyons.fr
+                           abderrahmane.bouziane@insa-lyon.fr
+                           hamza.wirane@insa-lyon.fr
+                           remi.vialleton@insa-lyon.fr
+*************************************************************************/
+
+//---------------------------------------------------------------- INCLUDE
+
+//-------------------------------------------------------- Include système
+using namespace std;
+#include <iostream>
+#include <cstring>
+
+//------------------------------------------------------ Include personnel
 #include "Catalogue.h"
 #include "Trajet.h"
 #include "TrajetSimple.h"
 #include "TrajetCompose.h"
-
-using namespace std;
-#include <iostream>
-#include <cstring>
 
 int main()
 {

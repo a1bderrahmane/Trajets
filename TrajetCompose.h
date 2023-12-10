@@ -1,9 +1,12 @@
 /*************************************************************************
                            TrajetCompose  -  description
                              -------------------
-    début                : $DATE$
-    copyright            : (C) $YEAR$ par $AUTHOR$
-    e-mail               : $EMAIL$
+    début                : 22/11/2023
+    copyright            : (C) 2023 par DRAVET Eléonore, BOUZIANE Abderrahmane, WIRANE Hamza, VIALLETON Rémi
+    e-mail               : eleonore.dravet@insa-lyons.fr
+                           abderrahmane.bouziane@insa-lyon.fr
+                           hamza.wirane@insa-lyon.fr
+                           remi.vialleton@insa-lyon.fr
 *************************************************************************/
 
 //---------- Interface de la classe <TrajetCompose> (fichier TrajetCompose.h) ----------------
@@ -21,7 +24,7 @@
 
 //------------------------------------------------------------------------
 // Rôle de la classe <TrajetCompose>
-// La classe TrajetCompose hérite publiquement de Trajet 
+// La classe TrajetCompose hérite publiquement de Trajet
 // Un trajet composé est un trajet dont la ville d'arrivée d'un trajet simple doit
 // correspondre à la ville de départ du trajet suivant
 
@@ -39,7 +42,6 @@ public:
     // Parcours de Tabtrajets des trajetsSimple composants un trajetCompose
     // pour les afficher un à un sur la sortie standard avec leurs
     // caractéristiques (villes d'arrivée, de départ, et transport)
-    
 
     int GetSize() const;
     // Mode d'emploi :
@@ -47,18 +49,16 @@ public:
 
     int AjouterTrajet(const char *MT, const char *dep, const char *arr);
     // Mode d'emploi :
-    //Ajout d'un trajetSimple à Tabtrajets pour composer un trajetCompose
-    
-    
+    // Ajout d'un trajetSimple à Tabtrajets pour composer un trajetCompose
+
     //-------------------------------------------- Constructeurs - destructeur
     TrajetCompose(const char *MT, const char *dep, const char *arr);
     // Mode d'emploi :
-    // Crée un trajet compose à partir de trajet simple 
+    // Crée un trajet compose à partir de trajet simple
     // avec un départ , une arrivée , et un moyen de transport
-    
 
     virtual ~TrajetCompose();
-    // Mode d'emploi :   
+    // Mode d'emploi :
     // Libére la mémoire allouée dynamiquement aux attributs de la classe
 
     //------------------------------------------------------------------ PRIVE
