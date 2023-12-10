@@ -27,8 +27,6 @@ using namespace std;
 
 //----------------------------------------------------- Méthodes publiques
 void Trajet::SetArrivee(const char *arr)
-// Algorithme :
-//
 {
     char *newArrivee = new char[strlen(arr) + 1];
     strcpy(newArrivee, arr);
@@ -37,23 +35,17 @@ void Trajet::SetArrivee(const char *arr)
 } //----- Fin de Trajet
 
 char *Trajet::GetDepart() const
-// Algorithme :
-//
 {
     return depart;
 } //----- Fin de Trajet
 
 char *Trajet::GetArrivee() const
-// Algorithme :
-//
 {
     return arrivee;
 } //----- Fin de Trajet
 
 //-------------------------------------------- Constructeurs - destructeur
 Trajet::Trajet(const char *dep, const char *arr)
-// Algorithme :
-//
 {
 #ifdef MAP
     cout << "Appel au constructeur de <Trajet>" << endl;
@@ -65,8 +57,6 @@ Trajet::Trajet(const char *dep, const char *arr)
 } //----- Fin de Trajet
 
 Trajet::~Trajet()
-// Algorithme :
-//
 {
 #ifdef MAP
     cout << "Appel au destructeur de <Trajet>" << endl;

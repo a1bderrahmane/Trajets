@@ -13,16 +13,11 @@
 #if !defined(TRAJET_H)
 #define TRAJET_H
 
-//--------------------------------------------------- Interfaces utilisées
-
-//------------------------------------------------------------- Constantes
-
-//------------------------------------------------------------------ Types
-
 //------------------------------------------------------------------------
 // Rôle de la classe <Trajet>
-//
-//
+// Classe abstraite permettant de gérer les attributs de base (depart et arrivee) d'un trajet,
+// qu'il soit simple ou composé.
+
 //------------------------------------------------------------------------
 
 class Trajet
@@ -34,33 +29,28 @@ public:
 
     virtual void Afficher() const = 0;
     // Mode d'emploi :
-    //Affichage d'un trajet
-    
+    // Méthode virtuelle pure pour redéfinir l'affichage
 
     char *GetArrivee() const;
     // Mode d'emploi :
-    //Renvoie l'arrivée du trajet
-    
+    // Renvoie l'arrivée du trajet
 
     char *GetDepart() const;
     // Mode d'emploi :
-    //renvoie le depart du trajet
-    
+    // Renvoie le depart du trajet
 
     void SetArrivee(const char *arr);
     // Mode d'emploi :
-    // affecte à l'attribut arrivée une valeur arr
+    // Affecte à l'attribut arrivee une valeur arr
 
     //-------------------------------------------- Constructeurs - destructeur
     Trajet(const char *dep, const char *arr);
     // Mode d'emploi :
-    //Constructeur de la classe trajet
-    
+    // Affecte les valeurs dep et arr aux attributs depart et arrivee
 
     virtual ~Trajet();
     // Mode d'emploi :
-    //Destructeur de Trajet
-    
+    // Libère la mémoire allouée pour depart et arrivee
 
     //------------------------------------------------------------------ PRIVE
 

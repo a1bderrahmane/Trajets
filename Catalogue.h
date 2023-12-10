@@ -22,8 +22,9 @@
 
 //------------------------------------------------------------------------
 // Rôle de la classe <Catalogue>
-//
-//
+// Permet de stocker les différents trajets simples et trajets composés et de les gérer en effectuant des
+// opérations d'affichage, d'ajout et de recherche.
+
 //------------------------------------------------------------------------
 
 class Catalogue
@@ -33,78 +34,74 @@ class Catalogue
 public:
     //----------------------------------------------------- Méthodes publiques
     void ChercherParcoursA(const char *deb, const char *fin) const;
-    //Parametres formels:
-    //deb:fait reference au depart 
-    //fin:fait reference à la destionation
-    // Mode d'emploi :
-    //chercher tous les trajets possibles directs entre ces 
-    //deux points dans le catalogue. 
-    //Si aucun trajet n'est trouvé, un message d'erreur est affiché.
-    
+    // Parametres formels:
+    // deb:fait reference au depart
+    // fin:fait reference à la destionation
+    //  Mode d'emploi :
+    //  Recherche et affiche les trajets du catalogue permettant d'aller de deb à fin.
+    //  Prends le départ et l'arrivée du parcours à chercher en paramètre.
+    //  Contrat :
+    //  La méthode ne modifie pas les attributs de la classe. Le catalogue ne doit pas être vide.
 
     void ChercherParcoursB(const char *deb, const char *fin);
-    //Parametres formels:
-    //deb:fait reference au depart 
-    //fin:fait reference à la destionation
+    // Parametres formels:
+    // deb:fait reference au depart
+    // fin:fait reference à la destionation
     // Mode d'emploi :
-    // Chercher tous les trajets possibles entre ces deux points dans le catalogue.
-    // Si aucun trajet n'est trouvé, un message d'erreur est affiché.
-    
+    // Affiche les combinaisons de trajets du catalogue permettant d'aller de deb à fin.
+    // Prends le départ et l'arrivée du parcours à chercher en paramètre.
+    // Contrat :
+    // La méthode ne modifie pas l'attribut Catal de la classe mais seulement l'attribut matrice.
+    // Le catalogue ne doit pas être vide.
 
     void Afficher() const;
     // Mode d'emploi :
-    //Afficher tous les trajets contenus dans le catalogue.
-    
+    // Affiche tous les trajets contenus dans le catalogue.
+    // Contrat :
+    // La méthode ne modifie pas les attributs de la classe.
 
     void Inserer(Trajet *Tr);
-    //Parametres formels:
-    //Tr:pointeur sur un objet de la classe Trajet
+    // Parametres formels:
+    // Tr:pointeur sur un objet de la classe Trajet
+    // Mode d'emploi :
+    // Insère un trajet simple ou composé passé en paramètre dans le catalogue.
 
     int GetSize() const;
     // Mode d'emploi :
-    //Retourne le nombre de trajets qu'il contient.
-    
+    // Retourne le nombre de trajets qu'il contient.
 
     //-------------------------------------------- Constructeurs - destructeur
     Catalogue();
     // Mode d'emploi :
-    //Constructeur de Catalogue
-    
+    // Constructeur de Catalogue
 
     virtual ~Catalogue();
     // Mode d'emploi :
-    //Destructeur de Catalogue
-    
+    // Destructeur de Catalogue
 
     //------------------------------------------------------------------ PRIVE
 
 protected:
-    //----------------------------------------------------- Méthodes protégées
+    //----------------------------------------------------- Attributs protégés
     TableauDynamique Catal;
     int **matrice;
 
 private:
+    //----------------------------------------------------- Méthodes protégées
     void Creer(void);
     // Mode d'emploi :
-    //Cree la matrice d'adjacence pour representer le graphe 
-    
-    
+    // Cree la matrice d'adjacence pour representer le graphe
+
     void DFS(int *visited, int current, int destination, int path[], int pathIndex, bool *found);
-    //Parametres formels:
-    //visited: Un tableau d'entiers qui indique si chaque sommet a été visité ou non.
-    //current: L'index du sommet courant.
-    //destination: L'index du sommet de destination.
-    //path: Un tableau d'entiers qui stocke le chemin actuel.
-    //pathIndex: L'index actuel dans le tableau path.
-    //found: Un pointeur vers un booléen qui indique si un chemin a été trouvé ou non.
+    // Parametres formels:
+    // visited: Un tableau d'entiers qui indique si chaque sommet a été visité ou non.
+    // current: L'index du sommet courant.
+    // destination: L'index du sommet de destination.
+    // path: Un tableau d'entiers qui stocke le chemin actuel.
+    // pathIndex: L'index actuel dans le tableau path.
+    // found: Un pointeur vers un booléen qui indique si un chemin a été trouvé ou non.
 
     // Mode d'emploi :
-    //Implémente l'algorithme de recherche en profondeur  pour trouver tous les chemins possibles entre deux points dans un graphe.
-    
-
-    //----------------------------------------------------- Attributs protégés
+    // Implémente l'algorithme de recherche en profondeur pour trouver tous les chemins possibles entre deux points dans un graphe.
 };
-
-//-------------------------------- Autres définitions dépendantes de <Catalogue>
-
 #endif // CATALOGUE_H

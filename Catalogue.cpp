@@ -28,8 +28,7 @@ using namespace std;
 //----------------------------------------------------- Méthodes publiques
 void Catalogue::ChercherParcoursA(const char *deb, const char *fin) const
 // Algorithme :
-// Cherche tous les trajets possibles entre deux points donnés dans le catalogue.
-// Si aucun trajet n'est trouvé, un message d'erreur est affiché.
+// Simple parcours de la liste de trajets et affichage lorsqu'on trouve un trajet correspondant
 {
     int i;
     int res = 0;
@@ -61,8 +60,7 @@ void Catalogue::ChercherParcoursA(const char *deb, const char *fin) const
 
 void Catalogue::Afficher() const
 // Algorithme :
-// Affiche tous les trajets contenus dans le catalogue.
-// Si le catalogue est vide, un message d'erreur est affiché.
+// Vérifie si la liste de trajets n'est pas vide avant d'afficher
 {
     // Vérifier si le catalogue est vide
     if (Catal.GetSize() == 0)
@@ -104,8 +102,9 @@ int Catalogue::GetSize() const
 
 void Catalogue::ChercherParcoursB(const char *deb, const char *fin)
 // Algorithme :
-// Cherche tous les parcours possibles entre deux points donnés dans le catalogue.
-// Elle utilise la méthode DFS (Depth-First Search) pour trouver tous les chemins possibles entre ces deux points.
+// Créer une matrice représantant les trajets et initialise les différentes variables nécessaire pour la recherche.
+// Parcours le catalogue pour trouver tous les départs et arrivée potentiels et utilise la méthode DFS (Depth-First Search)
+// pour trouver tous les chemins possibles entre les deux points.
 {
     // Afficher un message pour indiquer le début de la recherche
     cout << "--------------------" << endl
@@ -113,6 +112,7 @@ void Catalogue::ChercherParcoursB(const char *deb, const char *fin)
 
     // Créer la matrice d'adjacence pour représenter le graphe
     Creer();
+
     // Allocation de la mémoire au tableau visited pour marquer les nœuds visités
     int *visited = new int[Catal.GetSize()];
 
@@ -167,6 +167,14 @@ void Catalogue::ChercherParcoursB(const char *deb, const char *fin)
     {
         cout << "Aucun parcours possible avec les trajets du catalogue, essayez d'ajouter des trajets." << endl;
     }
+
+    // Destruction de la matrice (pour qu'elle puisse être redéfinie au prochain appel de rechercheB)
+    for (int i = 0; i < Catal.GetSize(); i++)
+    {
+        delete[] matrice[i];
+    }
+    delete[] matrice;
+
     // Libérer la mémoire allouée pour le tableau visited et le tableau path
     delete[] visited;
     delete[] path;
@@ -178,25 +186,15 @@ Catalogue::Catalogue()
 #ifdef MAP
     cout << "Appel au constructeur de <Catalogue>" << endl;
 #endif
-    matrice = nullptr;
 } //----- Fin de Catalogue
 
 Catalogue::~Catalogue()
 // Algorithme :
-//    Si la matrice n'est pas nulle, alors pour chaque ligne de la matrice, libérer la mémoire allouée pour cette ligne.
-//    Après avoir libéré toutes les lignes, libérer la mémoire allouée pour la matrice.
+// Parcours toute la matrice pour la libérer
 {
 #ifdef MAP
     cout << "Appel au destructeur de <Catalogue>" << endl;
 #endif
-    if (matrice)
-    {
-        for (int i = 0; i < Catal.GetSize(); i++)
-        {
-            delete[] matrice[i];
-        }
-        delete[] matrice;
-    }
 } //----- Fin de ~Catalogue
 
 //------------------------------------------------------------------ PRIVE
@@ -232,7 +230,7 @@ void Catalogue::Creer(void)
     }
 } // Fin de Creer
 
-void Catalogue::DFS(int *visited, int current, int destination, int path[], int pathIndex, bool *found) 
+void Catalogue::DFS(int *visited, int current, int destination, int path[], int pathIndex, bool *found)
 // Algorithme :
 //    Marquer le nœud courant comme visité.
 //    Ajouter le nœud courant au chemin.

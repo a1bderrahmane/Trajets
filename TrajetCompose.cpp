@@ -43,7 +43,7 @@ void TrajetCompose::Afficher() const
 
 int TrajetCompose::GetSize() const
 // Algorithme :
-//Utilise la méthode GetSize() de la classe TableauDynamique pour avoir le nombre d'éléments de tabTrajets
+// Utilise la méthode GetSize() de la classe TableauDynamique pour avoir le nombre d'éléments de tabTrajets
 //
 {
     return tabTrajets.GetSize();
