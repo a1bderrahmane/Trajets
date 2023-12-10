@@ -30,34 +30,40 @@ class Catalogue
 public:
     //----------------------------------------------------- Méthodes publiques
     void ChercherParcoursA(const char *deb, const char *fin) const;
+    //Parametres formels:
+    //deb:fait reference au depart 
+    //fin:fait reference à la destionation
     // Mode d'emploi :
-    //
-    // Contrat :
-    //
+    //chercher tous les trajets possibles directs entre ces 
+    //deux points dans le catalogue. 
+    //Si aucun trajet n'est trouvé, un message d'erreur est affiché.
+    
 
     void ChercherParcoursB(const char *deb, const char *fin);
+    //Parametres formels:
+    //deb:fait reference au depart 
+    //fin:fait reference à la destionation
     // Mode d'emploi :
-    //
-    // Contrat :
-    //
+    // Chercher tous les trajets possibles entre ces deux points dans le catalogue.
+    // Si aucun trajet n'est trouvé, un message d'erreur est affiché.
+    
 
     void Afficher() const;
     // Mode d'emploi :
-    //
-    // Contrat :
-    //
+    //Afficher tous les trajets contenus dans le catalogue.
+    
 
     void Inserer(Trajet *Tr);
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
+    //Parametres formels:
+    //Tr:pointeur sur un objet de la classe Trajet
 
+    // Mode d'emploi :
+    //Insérer un nouveau trajet dans le catalogue.
+    
     int GetSize();
     // Mode d'emploi :
-    //
-    // Contrat :
-    //
+    //Retourne le nombre de trajets qu'il contient.
+    
 
     //-------------------------------------------- Constructeurs - destructeur
     Catalogue();
@@ -81,7 +87,22 @@ protected:
 
 private:
     void Creer(void);
+    // Mode d'emploi :
+    //Cree la matrice d'adjacence pour representer le graphe 
+    
+    
     void DFS(int *visited, int current, int destination, int path[], int pathIndex, bool *found);
+    //Parametres formels:
+    //visited: Un tableau d'entiers qui indique si chaque sommet a été visité ou non.
+    //current: L'index du sommet courant.
+    //destination: L'index du sommet de destination.
+    //path: Un tableau d'entiers qui stocke le chemin actuel.
+    //pathIndex: L'index actuel dans le tableau path.
+    //found: Un pointeur vers un booléen qui indique si un chemin a été trouvé ou non.
+
+    // Mode d'emploi :
+    //Implémente l'algorithme de recherche en profondeur  pour trouver tous les chemins possibles entre deux points dans un graphe.
+    
 
     //----------------------------------------------------- Attributs protégés
 };
