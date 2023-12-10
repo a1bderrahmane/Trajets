@@ -68,15 +68,13 @@ public:
     //-------------------------------------------- Constructeurs - destructeur
     Catalogue();
     // Mode d'emploi :
-    //
-    // Contrat :
-    //
+    //Constructeur de Catalogue
+    
 
     virtual ~Catalogue();
     // Mode d'emploi :
-    //
-    // Contrat :
-    //
+    //Destructeur de Catalogue
+    
 
     //------------------------------------------------------------------ PRIVE
 
