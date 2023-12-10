@@ -1,9 +1,12 @@
 /*************************************************************************
                            Catalogue  -  description
                              -------------------
-    début                : $DATE$
-    copyright            : (C) $YEAR$ par $AUTHOR$
-    e-mail               : $EMAIL$
+    début                : 22/11/2023
+    copyright            : (C) 2023 par DRAVET Eléonore, BOUZIANE Abderrahmane, WIRANE Hamza, VIALLETON Rémi
+    e-mail               : eleonore.dravet@insa-lyons.fr
+                           abderrahmane.bouziane@insa-lyon.fr
+                           hamza.wirane@insa-lyon.fr
+                           remi.vialleton@insa-lyon.fr
 *************************************************************************/
 
 //---------- Interface de la classe <Catalogue> (fichier Catalogue.h) ----------------
@@ -57,10 +60,7 @@ public:
     //Parametres formels:
     //Tr:pointeur sur un objet de la classe Trajet
 
-    // Mode d'emploi :
-    //Insérer un nouveau trajet dans le catalogue.
-    
-    int GetSize();
+    int GetSize() const;
     // Mode d'emploi :
     //Retourne le nombre de trajets qu'il contient.
     

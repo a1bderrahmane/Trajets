@@ -1,9 +1,12 @@
 /*************************************************************************
                            Catalogue  -  description
                              -------------------
-    début                : $DATE$
-    copyright            : (C) $YEAR$ par $AUTHOR$
-    e-mail               : $EMAIL$
+    début                : 22/11/2023
+    copyright            : (C) 2023 par DRAVET Eléonore, BOUZIANE Abderrahmane, WIRANE Hamza, VIALLETON Rémi
+    e-mail               : eleonore.dravet@insa-lyons.fr
+                           abderrahmane.bouziane@insa-lyon.fr
+                           hamza.wirane@insa-lyon.fr
+                           remi.vialleton@insa-lyon.fr
 *************************************************************************/
 
 //---------- Réalisation de la classe <Catalogue> (fichier Catalogue.cpp) ------------
@@ -87,14 +90,14 @@ void Catalogue::Afficher() const
 
 void Catalogue::Inserer(Trajet *Tr)
 // Algorithme :
-//Utilise la méthode Ajouter de la classe TableauDynamique
+// Utilise la méthode Ajouter de la classe TableauDynamique
 {
     Catal.Ajouter(Tr);
 } //----- Fin de Méthode
 
-int Catalogue::GetSize()
+int Catalogue::GetSize() const
 // Algorithme :
-//Utilise la méthode GetSize de la classe TableauDynamique
+// Utilise la méthode GetSize de la classe TableauDynamique
 {
     return Catal.GetSize();
 } //----- Fin de Méthode
@@ -118,11 +121,11 @@ void Catalogue::ChercherParcoursB(const char *deb, const char *fin)
 
     // Initialiser un index pathIndex pour suivre l'index actuel dans le chemin
     int pathIndex = 0;
-    
+
     // Initialiser un booléen found pour indiquer si un chemin est trouvé
     bool found = false;
 
-    // Marquer tous les nœuds comme non visités 
+    // Marquer tous les nœuds comme non visités
     for (int i = 0; i < Catal.GetSize(); i++)
     {
         visited[i] = 0;
@@ -134,14 +137,14 @@ void Catalogue::ChercherParcoursB(const char *deb, const char *fin)
     // Parcourir tous les nœuds du catalogue
     for (int i = 0; i < Catal.GetSize(); i++)
     {
-        //Si le nœud est l'arrivee
+        // Si le nœud est l'arrivee
         if (!strcmp(Catal[i]->GetArrivee(), fin))
         {
             // Enregistrer l'index du nœud comme destination
             destination = i;
             for (int i = 0; i < Catal.GetSize(); i++)
             {
-                //Si le nœud est le depart
+                // Si le nœud est le depart
                 if (!strcmp(Catal[i]->GetDepart(), deb))
                 {
                     // Enregistrer l'index du nœud comme debut
@@ -186,7 +189,7 @@ Catalogue::~Catalogue()
 #ifdef MAP
     cout << "Appel au destructeur de <Catalogue>" << endl;
 #endif
-    if (matrice != nullptr)
+    if (matrice)
     {
         for (int i = 0; i < Catal.GetSize(); i++)
         {
@@ -266,7 +269,7 @@ void Catalogue::DFS(int *visited, int current, int destination, int path[], int 
         // Parcourir tous les nœuds adjacents
         for (int i = 0; i < Catal.GetSize(); i++)
         {
-            // Si le nœud adjacent n'a pas encore été visité 
+            // Si le nœud adjacent n'a pas encore été visité
             if (matrice[current][i] == 1 && !visited[i])
             {
                 // Appeler la fonction DFS récursivement pour le nœud adjacent
