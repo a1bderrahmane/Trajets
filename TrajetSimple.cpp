@@ -21,15 +21,10 @@ using namespace std;
 //------------------------------------------------------ Include personnel
 #include "TrajetSimple.h"
 
-//------------------------------------------------------------- Constantes
-
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
 void TrajetSimple::Afficher() const
-// Algorithme :
-//
-//
 {
     cout << "Trajet simple: "
          << "De " << depart << " à " << arrivee << " en " << moyenTransport << endl;
@@ -37,8 +32,6 @@ void TrajetSimple::Afficher() const
 
 //-------------------------------------------- Constructeurs - destructeur
 TrajetSimple::TrajetSimple(const char *dep, const char *arr, const char *MT) : Trajet(dep, arr)
-// Algorithme :
-//
 {
 #ifdef MAP
     cout << "Appel au constructeur de <TrajetSimple>" << endl;
@@ -48,15 +41,9 @@ TrajetSimple::TrajetSimple(const char *dep, const char *arr, const char *MT) : T
 } //----- Fin de TrajetSimple
 
 TrajetSimple::~TrajetSimple()
-// Algorithme :
-//
 {
 #ifdef MAP
     cout << "Appel au destructeur de <TrajetSimple>" << endl;
 #endif
     delete[] moyenTransport;
 } //----- Fin de ~TrajetSimple
-
-//------------------------------------------------------------------ PRIVE
-
-//----------------------------------------------------- Méthodes protégées

@@ -18,10 +18,6 @@
 #include "TrajetSimple.h"
 #include "TableauDynamique.h"
 
-//------------------------------------------------------------- Constantes
-
-//------------------------------------------------------------------ Types
-
 //------------------------------------------------------------------------
 // Rôle de la classe <TrajetCompose>
 // La classe TrajetCompose hérite publiquement de Trajet
@@ -35,7 +31,6 @@ class TrajetCompose : public Trajet
     //----------------------------------------------------------------- PUBLIC
 
 public:
-    //----------------------------------------------------- Méthodes publiques
     //----------------------------------------------------- Méthodes publiques
     void Afficher() const;
     // Mode d'emploi :
@@ -64,12 +59,8 @@ public:
     //------------------------------------------------------------------ PRIVE
 
 protected:
-    //----------------------------------------------------- Méthodes protégées
-
     //----------------------------------------------------- Attributs protégés
     TableauDynamique tabTrajets;
 };
-
-//-------------------------------- Autres définitions dépendantes de <TrajetCompose>
 
 #endif // TRAJETCOMPOSE_H

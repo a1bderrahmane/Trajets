@@ -21,8 +21,6 @@ using namespace std;
 //------------------------------------------------------ Include personnel
 #include "TableauDynamique.h"
 
-//------------------------------------------------------------- Constantes
-
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
@@ -41,7 +39,7 @@ void TableauDynamique::Ajouter(Trajet *&Tr)
 
 int TableauDynamique::GetSize() const
 {
-    return filled; //correspond au nombre de pointeurs de Trajet stockés et nom à la taille allouée en mémoire
+    return filled; // correspond au nombre de pointeurs de Trajet stockés et nom à la taille allouée en mémoire
 } //----- Fin de Méthode
 
 Trajet *&TableauDynamique::operator[](int index) const
@@ -89,12 +87,12 @@ TableauDynamique::~TableauDynamique()
 
 //----------------------------------------------------- Méthodes protégées
 void TableauDynamique::Agrandir(int taille)
-//Algorithme
-//alloue plus de mémoire à tabTrajets
+// Algorithme
+// alloue plus de mémoire à tabTrajets
 {
-    Trajet **newTabTrajets = new Trajet *[taille * sizeof(Trajet)]; 
+    Trajet **newTabTrajets = new Trajet *[taille * sizeof(Trajet)];
     int i;
-    for (i = 0; i < filled; i++) //remplit newTabTrajets des valeurs de tabTrajets
+    for (i = 0; i < filled; i++) // remplit newTabTrajets des valeurs de tabTrajets
     {
         newTabTrajets[i] = tabTrajets[i];
     }

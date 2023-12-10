@@ -257,32 +257,5 @@ int main()
         }
         }
     }
-    /* TrajetSimple *traj = new TrajetSimple("A", "B", "T1");
-    TrajetCompose trajC1 = TrajetCompose("A", "B", "T2");
-    TrajetSimple *traj2 = new TrajetSimple("B", "C", "T1");
-    TrajetCompose trajC2 = TrajetCompose("B", "C", "T2");
-    TrajetSimple *traj3 = new TrajetSimple("A", "C", "T1");
-    TrajetCompose trajC3 = TrajetCompose("A", "E", "T2");
-    TrajetSimple *traj4 = new TrajetSimple("E", "C", "T1");
-    TrajetCompose trajC4 = TrajetCompose("E", "C", "T2");
-    TrajetSimple *traj5 = new TrajetSimple("B", "E", "T1");
-    TrajetCompose trajC5 = TrajetCompose("B", "E", "T2");
-    trajC1.AjouterTrajet("A", "B", "T1");
-
-    Catalogue C = Catalogue();
-    C.Inserer(traj);
-    C.Inserer(traj2);
-    C.Inserer(traj3);
-    C.Inserer(traj4);
-    C.Inserer(&trajC5);
-    C.ChercherParcoursB("A", "C"); */
-
-    /* delete traj2;
-
-    delete traj3;
-
-    delete traj4;
-
-    delete traj5;
-    return 0;*/
+    return 0;
 }

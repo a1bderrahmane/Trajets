@@ -21,8 +21,6 @@ using namespace std;
 //------------------------------------------------------ Include personnel
 #include "TrajetCompose.h"
 
-//------------------------------------------------------------- Constantes
-
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
@@ -94,7 +92,3 @@ TrajetCompose::~TrajetCompose()
     cout << "Appel au destructeur de <TrajetCompose>" << endl;
 #endif
 } //----- Fin de ~TrajetCompose
-
-//------------------------------------------------------------------ PRIVE
-
-//----------------------------------------------------- Méthodes protégées

@@ -21,8 +21,6 @@ using namespace std;
 //------------------------------------------------------ Include personnel
 #include "Catalogue.h"
 
-//------------------------------------------------------------- Constantes
-
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
@@ -278,4 +276,3 @@ void Catalogue::DFS(int *visited, int current, int destination, int path[], int 
     // Retourner le nœud courant à l'état non visité pour la recherche en profondeur
     visited[current] = 0; // Backtrack
 } // Fin de DFS
-//----------------------------------------------------- Méthodes protégées

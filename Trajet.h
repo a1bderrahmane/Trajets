@@ -55,13 +55,9 @@ public:
     //------------------------------------------------------------------ PRIVE
 
 protected:
-    //----------------------------------------------------- Méthodes protégées
-
     //----------------------------------------------------- Attributs protégés
     char *depart;
     char *arrivee;
 };
-
-//-------------------------------- Autres définitions dépendantes de <Trajet>
 
 #endif // TRAJET_H

@@ -17,10 +17,6 @@
 #include "Trajet.h"
 #include "TrajetSimple.h"
 
-//------------------------------------------------------------- Constantes
-
-//------------------------------------------------------------------ Types
-
 //------------------------------------------------------------------------
 // Rôle de la classe <TableauDynamique>
 // La classe tableau dynamique implémente une structure de tableau dynamique, utilisée par Catalogue et par TrajetCompose
@@ -33,33 +29,28 @@ class TableauDynamique
 public:
     //----------------------------------------------------- Méthodes publiques
     void Ajouter(Trajet *&Tr);
-    //Parametres formels:
-    //Tr:pointeur sur un objet de la classe Trajet
-    // Mode d'emploi :
-    //ajoute le trajet Tr dans la première case vide
-    
+    // Parametres formels:
+    // Tr:pointeur sur un objet de la classe Trajet
+    //  Mode d'emploi :
+    // ajoute le trajet Tr dans la première case vide
 
     int GetSize() const;
     // Mode d'emploi :
-    //Retourne le nombre d'élements dans le tableau
-    
+    // Retourne le nombre d'élements dans le tableau
 
     // ------------------------------------------- Surcharge d'opérateurs
     Trajet *&operator[](int index) const;
     // Mode d'emploi :
-    //Surcharge de l'operateur []
-    
+    // Surcharge de l'operateur []
 
     //-------------------------------------------- Constructeurs - destructeur
     TableauDynamique();
     // Mode d'emploi :
-    //Constructeur de la classe TableauDynamique
-    
+    // Constructeur de la classe TableauDynamique
 
     virtual ~TableauDynamique();
     // Mode d'emploi :
-    //Destructeur de la classe TableauDynamique
-    
+    // Destructeur de la classe TableauDynamique
 
     //------------------------------------------------------------------ PRIVE
 
@@ -67,17 +58,14 @@ protected:
     //----------------------------------------------------- Méthodes protégées
     void Agrandir(int newTaille);
     // Mode d'emploi :
-    //Fait agrandir la taille du tableau 
-    //Contrat:
+    // Fait agrandir la taille du tableau
+    // Contrat:
     // newTaille doit être superieure à la taille initiale du tableau
-    
 
     //----------------------------------------------------- Attributs protégés
     Trajet **tabTrajets;
     int filled;
     int allocated;
 };
-
-//-------------------------------- Autres définitions dépendantes de <TableauDynamique>
 
 #endif // TABLEAUDYNAMIQUE_H
