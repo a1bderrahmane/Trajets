@@ -33,36 +33,33 @@ class TableauDynamique
 public:
     //----------------------------------------------------- Méthodes publiques
     void Ajouter(Trajet *&Tr);
+    //Parametres formels:
+    //Tr:pointeur sur un objet de la classe Trajet
     // Mode d'emploi :
-    //
-    // Contrat :
-    //
+    //ajoute le trajet Tr dans la première case vide
+    
 
     int GetSize() const;
     // Mode d'emploi :
-    //
-    // Contrat :
-    //
+    //Retourne le nombre d'élements dans le tableau
+    
 
     // ------------------------------------------- Surcharge d'opérateurs
     Trajet *&operator[](int index) const;
     // Mode d'emploi :
-    //
-    // Contrat :
-    //
+    //Surcharge de l'operateur []
+    
 
     //-------------------------------------------- Constructeurs - destructeur
     TableauDynamique();
     // Mode d'emploi :
-    //
-    // Contrat :
-    //
+    //Constructeur de la classe TableauDynamique
+    
 
     virtual ~TableauDynamique();
     // Mode d'emploi :
-    //
-    // Contrat :
-    //
+    //Destructeur de la classe TableauDynamique
+    
 
     //------------------------------------------------------------------ PRIVE
 
@@ -70,9 +67,10 @@ protected:
     //----------------------------------------------------- Méthodes protégées
     void Agrandir(int newTaille);
     // Mode d'emploi :
-    //
-    // Contrat :
-    //
+    //Fait agrandir la taille du tableau 
+    //Contrat:
+    // newTaille doit être superieure à la taille initiale du tableau
+    
 
     //----------------------------------------------------- Attributs protégés
     Trajet **tabTrajets;
