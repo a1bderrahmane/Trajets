@@ -134,7 +134,7 @@ int main()
             {
                 if (i == 1)
                 {
-                    cout << "Veuillez saisir le " << i << "ère"
+                    cout << "Veuillez saisir le " << i << "er"
                          << " trajet (Entrez 'FIN' pour terminer et revenir au menu: " << endl
                          << endl;
                     cout << "Entrez une ville de départ: ";
