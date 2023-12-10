@@ -232,7 +232,7 @@ void Catalogue::Creer(void)
     }
 } // Fin de Creer
 
-void Catalogue::DFS(int *visited, int current, int destination, int path[], int pathIndex, bool *found)
+void Catalogue::DFS(int *visited, int current, int destination, int path[], int pathIndex, bool *found) 
 // Algorithme :
 //    Marquer le nœud courant comme visité.
 //    Ajouter le nœud courant au chemin.

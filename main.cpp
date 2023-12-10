@@ -1,11 +1,26 @@
+/*************************************************************************
+                           Main  -  description
+                             -------------------
+    début                : 22/11/2023
+    copyright            : (C) 2023 par DRAVET Eléonore, BOUZIANE Abderrahmane, WIRANE Hamza, VIALLETON Rémi
+    e-mail               : eleonore.dravet@insa-lyons.fr
+                           abderrahmane.bouziane@insa-lyon.fr
+                           hamza.wirane@insa-lyon.fr
+                           remi.vialleton@insa-lyon.fr
+*************************************************************************/
+
+//---------------------------------------------------------------- INCLUDE
+
+//-------------------------------------------------------- Include système
+using namespace std;
+#include <iostream>
+#include <cstring>
+
+//------------------------------------------------------ Include personnel
 #include "Catalogue.h"
 #include "Trajet.h"
 #include "TrajetSimple.h"
 #include "TrajetCompose.h"
-
-using namespace std;
-#include <iostream>
-#include <cstring>
 
 int main()
 {
@@ -68,12 +83,33 @@ int main()
             char *dep = new char[100];
             char *arr = new char[100];
             char *MT = new char[100];
-            cout << "Entrez une ville de départ: ";
+            cout << "Entrez une ville de départ (STOP pour revenir au menu): ";
             cin >> dep;
-            cout << "Entrez une ville d'arrivée: ";
+            if (!strcmp(dep, "STOP"))
+            {
+                delete[] dep;
+                break;
+            }
+
+            cout << "Entrez une ville d'arrivée (STOP pour revenir au menu): ";
             cin >> arr;
-            cout << "Entrez un moyen de transport: ";
+            if (!strcmp(arr, "STOP"))
+            {
+                delete[] dep;
+                delete[] arr;
+                break;
+            }
+
+            cout << "Entrez un moyen de transport (STOP pour revenir au menu): ";
             cin >> MT;
+            if (!strcmp(arr, "STOP"))
+            {
+                delete[] dep;
+                delete[] arr;
+                delete[] MT;
+                break;
+            }
+
             TrajetSimple *T = new TrajetSimple(dep, arr, MT);
             C.Inserer(T);
 
@@ -91,15 +127,25 @@ int main()
             char *arr = new char[100];
             char *MT = new char[100];
 
-            TrajetCompose *TC;
+            TrajetCompose *TC = nullptr;
 
             int i = 1;
             while (1)
             {
-                cout << "Veuillez saisir le " << i << "ème"
-                     << " trajet (Entrez 'FIN' pour terminer) : " << endl
-                     << endl;
-                cout << "Entrez une ville de départ: ";
+                if (i == 1)
+                {
+                    cout << "Veuillez saisir le " << i << "er"
+                         << " trajet (Entrez 'FIN' pour terminer et revenir au menu: " << endl
+                         << endl;
+                    cout << "Entrez une ville de départ: ";
+                }
+                else
+                {
+                    cout << "Veuillez saisir le " << i << "ème"
+                         << " trajet (Entrez 'FIN' pour terminer et revenir au menu: " << endl
+                         << endl;
+                    cout << "Entrez une ville de départ: ";
+                }
                 cin >> dep;
                 if (!strcmp(dep, "FIN"))
                 {
@@ -135,7 +181,7 @@ int main()
                     i--;
                 }
             }
-            if (TC->GetSize() == 0)
+            if (!TC)
             {
                 delete[] TC;
             }
