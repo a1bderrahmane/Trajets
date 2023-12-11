@@ -58,7 +58,7 @@ int TrajetCompose::AjouterTrajet(const char *dep, const char *arr, const char *M
 #ifdef MAP
     cout << "Ajout d'un trajet à <TrajetCompose>" << endl;
 #endif
-    if (tabTrajets.GetSize() != 1)
+    if (tabTrajets.GetSize() != 0)
     {
         if (strcmp(tabTrajets[tabTrajets.GetSize() - 1]->GetArrivee(), dep))
         {
