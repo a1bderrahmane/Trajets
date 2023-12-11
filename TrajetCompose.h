@@ -21,8 +21,8 @@
 //------------------------------------------------------------------------
 // Rôle de la classe <TrajetCompose>
 // La classe TrajetCompose hérite publiquement de Trajet
-// Un trajet composé est un trajet dont la ville d'arrivée d'un trajet simple doit
-// correspondre à la ville de départ du trajet suivant
+// Un trajet composé est un trajet composé de trajets simples dont la ville d'arrivée
+// de chaque trajet simple doit correspondre à la ville de départ du trajet suivant
 
 //------------------------------------------------------------------------
 
