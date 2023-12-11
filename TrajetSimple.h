@@ -18,7 +18,8 @@
 
 //------------------------------------------------------------------------
 // Rôle de la classe <TrajetSimple>
-//
+// La classe TrajetCompose hérite publiquement de Trajet. Elle spécifie un moyen
+// de transport au trajet et une méthode d'affichage.
 //
 //------------------------------------------------------------------------
 

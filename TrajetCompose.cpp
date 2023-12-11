@@ -33,8 +33,7 @@ void TrajetCompose::Afficher() const
     int i;
     for (i = 0; i < tabTrajets.GetSize(); i++)
     {
-        cout << "    "
-             << "- ";
+        cout << "    ";
         tabTrajets[i]->Afficher();
     }
 } //----- Fin de Méthode

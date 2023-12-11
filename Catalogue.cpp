@@ -77,7 +77,6 @@ void Catalogue::Afficher() const
         {
             cout << endl;
             cout << "    ";
-            cout << "- ";
             Catal[i]->Afficher();
             cout << "        --" << endl;
         }
