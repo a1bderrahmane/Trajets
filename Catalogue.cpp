@@ -43,8 +43,11 @@ void Catalogue::ChercherParcoursA(const char *deb, const char *fin) const
             // Marquer que le trajet est trouvé
             res = 1;
 
-            cout << endl;
+            cout << "    ";
+            cout << "- ";
             Catal[i]->Afficher();
+            cout << "        --" << endl;
+            cout << endl;
         }
     }
     // Si aucun trajet n'est trouvé
@@ -108,7 +111,7 @@ void Catalogue::ChercherParcoursB(const char *deb, const char *fin)
          << "Liste des combinaisons de trajets de catalogue permettant d'aller de " << deb << " à " << fin << ":" << endl;
 
     // Créer la matrice d'adjacence pour représenter le graphe
-    Creer();
+    int **matrice = Creer();
 
     // Allocation de la mémoire au tableau visited pour marquer les nœuds visités
     int *visited = new int[Catal.GetSize()];
@@ -148,7 +151,7 @@ void Catalogue::ChercherParcoursB(const char *deb, const char *fin)
                     start = i;
 
                     // Appeler la fonction DFS pour trouver tous les chemins possibles entre le départ et la destination
-                    DFS(visited, start, destination, path, pathIndex, &found);
+                    DFS(matrice, visited, start, destination, path, pathIndex, &found);
 
                     // Marquer tous les nœuds comme non visités pour la prochaine recherche
                     for (int i = 0; i < Catal.GetSize(); i++)
@@ -195,7 +198,7 @@ Catalogue::~Catalogue()
 } //----- Fin de ~Catalogue
 
 //------------------------------------------------------------------ PRIVE
-void Catalogue::Creer(void)
+int **Catalogue::Creer(void)
 // Algorithme :
 // Crée une matrice d'adjacence pour représenter un graphe.
 // Chaque élément de la matrice indique si il y a une arête entre deux nœuds.
@@ -203,7 +206,7 @@ void Catalogue::Creer(void)
 // Les arêtes sont représentées par les relations entre les départs et les arrivées des éléments du catalogue.
 {
     // Allouer de la mémoire pour la matrice
-    matrice = (int **)new int *[sizeof(int *) * Catal.GetSize()];
+    int **matrice = (int **)new int *[sizeof(int *) * Catal.GetSize()];
     for (int i = 0; i < Catal.GetSize(); i++)
     {
         matrice[i] = new int[sizeof(int) * Catal.GetSize()];
@@ -225,9 +228,10 @@ void Catalogue::Creer(void)
             }
         }
     }
+    return matrice;
 } // Fin de Creer
 
-void Catalogue::DFS(int *visited, int current, int destination, int path[], int pathIndex, bool *found)
+void Catalogue::DFS(int **matrice, int *visited, int current, int destination, int path[], int pathIndex, bool *found)
 // Algorithme :
 //    Marquer le nœud courant comme visité.
 //    Ajouter le nœud courant au chemin.
@@ -257,7 +261,6 @@ void Catalogue::DFS(int *visited, int current, int destination, int path[], int 
             Catal[path[i]]->Afficher();
         }
         cout << "        --" << endl;
-        cout << endl;
     }
     else
     {
@@ -268,7 +271,7 @@ void Catalogue::DFS(int *visited, int current, int destination, int path[], int 
             if (matrice[current][i] == 1 && !visited[i])
             {
                 // Appeler la fonction DFS récursivement pour le nœud adjacent
-                DFS(visited, i, destination, path, pathIndex, found);
+                DFS(matrice, visited, i, destination, path, pathIndex, found);
             }
         }
     }

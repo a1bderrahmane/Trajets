@@ -84,16 +84,16 @@ public:
 protected:
     //----------------------------------------------------- Attributs protégés
     TableauDynamique Catal;
-    int **matrice;
 
 private:
     //----------------------------------------------------- Méthodes protégées
-    void Creer(void);
+    int **Creer(void);
     // Mode d'emploi :
-    // Cree la matrice d'adjacence pour representer le graphe
+    // Cree la matrice d'adjacence pour representer le graphe et la renvoit
 
-    void DFS(int *visited, int current, int destination, int path[], int pathIndex, bool *found);
+    void DFS(int **matrice, int *visited, int current, int destination, int path[], int pathIndex, bool *found);
     // Parametres formels:
+    // matrice: Matrice d'adjacence représentant tous les trajets
     // visited: Un tableau d'entiers qui indique si chaque sommet a été visité ou non.
     // current: L'index du sommet courant.
     // destination: L'index du sommet de destination.
