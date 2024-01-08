@@ -49,7 +49,7 @@ char *Trajet::GetArrivee() const
 {
     return arrivee;
 } //----- Fin de Trajet
-
+Trajet::Trajet(){}
 //-------------------------------------------- Constructeurs - destructeur
 Trajet::Trajet(const char *dep, const char *arr)
 // Algorithme :

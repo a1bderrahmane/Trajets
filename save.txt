@@ -1,0 +1,2 @@
+S;AA;B;M
+C;A;B;M;A;B;M

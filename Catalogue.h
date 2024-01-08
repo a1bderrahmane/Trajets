@@ -12,9 +12,10 @@
 //---------- Interface de la classe <Catalogue> (fichier Catalogue.h) ----------------
 #if !defined(CATALOGUE_H)
 #define CATALOGUE_H
-
+#include <fstream>
 //--------------------------------------------------- Interfaces utilisées
 #include "Trajet.h"
+#include "TrajetSimple.h"
 #include "TableauDynamique.h"
 //------------------------------------------------------------- Constantes
 
@@ -63,6 +64,9 @@ public:
     int GetSize() const;
     // Mode d'emploi :
     //Retourne le nombre de trajets qu'il contient.
+
+
+
     
 
     //-------------------------------------------- Constructeurs - destructeur
@@ -75,7 +79,10 @@ public:
     // Mode d'emploi :
     //Destructeur de Catalogue
     
-
+    void Sauvegarde(ofstream &out)const;
+    void SauvegardeSimple(ofstream &out)const;
+    void SauvegardeCompose(ofstream &out)const;
+    void Lire(string &str);
     //------------------------------------------------------------------ PRIVE
 
 protected:

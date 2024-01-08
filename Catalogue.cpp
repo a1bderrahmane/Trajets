@@ -17,7 +17,7 @@
 using namespace std;
 #include <iostream>
 #include <cstring>
-
+#include <fstream>
 //------------------------------------------------------ Include personnel
 #include "Catalogue.h"
 
@@ -102,6 +102,41 @@ int Catalogue::GetSize() const
     return Catal.GetSize();
 } //----- Fin de Méthode
 
+void Catalogue::Lire(string &str)
+{
+    ifstream file("save.txt");
+    while (getline(file,str, '\n')) 
+    {
+        char c = ';';
+        size_t pos = 0;
+
+        if (str[0]=='S')
+        {   
+            // char *dep=str.substr(0,str.find(c));
+            // str=str[str.find(c);:];
+            // char *arr=str.substr(0,str.find(c));
+            // str=str[str.find(c);:];
+            // char *MT=str.substr(0,str.find(c));
+            
+            
+           char *dep=new char[100];
+            strcpy(dep,str.substr(2,(str.find(c)-2)).c_str());
+            cout<<dep<<endl;
+            str.erase(0,str.find(c)+1);
+             char *arr=new char[100];
+            strcpy(arr,str.substr(0,str.find(c)+1).c_str());
+            str.erase(0,str.find(c)+1);
+            char *MT=new char[100];
+            strcpy(MT,str.substr(0,str.find(c)+1).c_str());
+            Trajet*T = new TrajetSimple(dep, arr, MT);
+            Catal.Ajouter(T);
+        }
+        else
+        {
+            cout<<"Trajet compose"<<endl;
+        }
+    }
+}
 void Catalogue::ChercherParcoursB(const char *deb, const char *fin)
 // Algorithme :
 // Cherche tous les parcours possibles entre deux points donnés dans le catalogue.
@@ -198,6 +233,63 @@ Catalogue::~Catalogue()
         delete[] matrice;
     }
 } //----- Fin de ~Catalogue
+void Catalogue::Sauvegarde(ofstream &out)const
+{
+    if(out)
+    
+         {
+            streambuf *oldCoutBuffer = cout.rdbuf ( out.rdbuf ( ) );
+            for(int i=0;i<Catal.GetSize();i++){
+              Catal[i]->Sauvegarde(out);
+              Catal[i]->Afficher();
+            }
+            cout.rdbuf ( oldCoutBuffer );
+
+        }else{ cerr<<"pb d'acces au fichier "<<endl;}
+
+}
+void Catalogue::SauvegardeSimple(ofstream &out)const
+{
+     if(out)
+         {
+            for(int i=0;i<Catal.GetSize();i++)
+            {  
+                
+                TrajetSimple* ptsimple=dynamic_cast<TrajetSimple*>(Catal[i]);
+                if (ptsimple != nullptr) 
+                {
+                    streambuf *oldCoutBuffer = cout.rdbuf ( out.rdbuf ( ) );
+                    Catal[i]->Afficher();
+                     cout.rdbuf ( oldCoutBuffer );
+                }
+                
+            }
+           
+
+        }else{ cerr<<"pb d'acces au fichier "<<endl;}
+}
+void Catalogue::SauvegardeCompose(ofstream &out)const
+{
+    
+     if(out)
+         {
+            for(int i=0;i<Catal.GetSize();i++)
+            {  
+                
+                TrajetSimple * ptsimple;
+                ptsimple=dynamic_cast<TrajetSimple*>(Catal[i]);
+                if (ptsimple == nullptr) 
+                {
+                    streambuf *oldCoutBuffer = cout.rdbuf ( out.rdbuf ( ) );
+                    Catal[i]->Afficher();
+                     cout.rdbuf ( oldCoutBuffer );
+                }
+                
+            }
+           
+
+        }else{ cerr<<"pb d'acces au fichier "<<endl;}
+}
 
 //------------------------------------------------------------------ PRIVE
 void Catalogue::Creer(void)

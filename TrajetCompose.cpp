@@ -17,7 +17,7 @@
 using namespace std;
 #include <iostream>
 #include <cstring>
-
+#include <fstream>
 //------------------------------------------------------ Include personnel
 #include "TrajetCompose.h"
 
@@ -73,7 +73,12 @@ int TrajetCompose::AjouterTrajet(const char *dep, const char *arr, const char *M
     SetArrivee(arr);
     return 1;
 } //----- Fin de Méthode
-
+void TrajetCompose::Sauvegarde(ofstream &out)const
+{
+    
+    out<<"On est dans un trajet composé"<<std::endl;
+    
+}
 //-------------------------------------------- Constructeurs - destructeur
 TrajetCompose::TrajetCompose(const char *dep, const char *arr, const char *MT) : Trajet(dep, arr)
 // Algorithme :

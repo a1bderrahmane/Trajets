@@ -17,7 +17,7 @@
 using namespace std;
 #include <iostream>
 #include <cstring>
-
+#include <fstream>
 //------------------------------------------------------ Include personnel
 #include "TrajetSimple.h"
 
@@ -36,6 +36,7 @@ void TrajetSimple::Afficher() const
 } //----- Fin de Méthode
 
 //-------------------------------------------- Constructeurs - destructeur
+
 TrajetSimple::TrajetSimple(const char *dep, const char *arr, const char *MT) : Trajet(dep, arr)
 // Algorithme :
 //
@@ -55,7 +56,16 @@ TrajetSimple::~TrajetSimple()
     cout << "Appel au destructeur de <TrajetSimple>" << endl;
 #endif
     delete[] moyenTransport;
-} //----- Fin de ~TrajetSimple
+} 
+void TrajetSimple::Sauvegarde(ofstream &out)const
+{
+    out<<"On est dans un Trajet simple"<<std::endl;
+
+}
+
+
+
+//----- Fin de ~TrajetSimple
 
 //------------------------------------------------------------------ PRIVE
 

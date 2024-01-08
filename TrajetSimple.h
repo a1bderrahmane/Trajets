@@ -12,7 +12,7 @@
 //---------- Interface de la classe <TrajetSimple> (fichier TrajetSimple.h) ----------------
 #if !defined(TRAJETSIMPLE_H)
 #define TRAJETSIMPLE_H
-
+#include <fstream>
 //--------------------------------------------------- Interfaces utilisées
 #include "Trajet.h"
 
@@ -41,11 +41,13 @@ public:
   // Mode d'emploi :
   // Crée un trajet simple avec un départ , une arrivée , et un moyen de transport
 
+
   virtual ~TrajetSimple();
   // Mode d'emploi :
   // Libére la mémoire allouée dynamiquement aux attributs de la classe
 
   //------------------------------------------------------------------ PRIVE
+void Sauvegarde(ofstream&out)const;
 
 protected:
   //----------------------------------------------------- Méthodes protégées

@@ -12,7 +12,7 @@
 //---------- Interface de la classe <TrajetCompose> (fichier TrajetCompose.h) ----------------
 #if !defined(TRAJETCOMPOSE_H)
 #define TRAJETCOMPOSE_H
-
+#include <fstream>
 //--------------------------------------------------- Interfaces utilisées
 #include "Trajet.h"
 #include "TrajetSimple.h"
@@ -51,16 +51,18 @@ public:
     // Mode d'emploi :
     // Ajout d'un trajetSimple à Tabtrajets pour composer un trajetCompose
 
+
+
     //-------------------------------------------- Constructeurs - destructeur
     TrajetCompose(const char *MT, const char *dep, const char *arr);
     // Mode d'emploi :
     // Crée un trajet compose à partir de trajet simple
     // avec un départ , une arrivée , et un moyen de transport
-
+    TrajetCompose(){};
     virtual ~TrajetCompose();
     // Mode d'emploi :
     // Libére la mémoire allouée dynamiquement aux attributs de la classe
-
+    void Sauvegarde(ofstream & out)const;
     //------------------------------------------------------------------ PRIVE
 
 protected:

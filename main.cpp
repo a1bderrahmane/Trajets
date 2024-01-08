@@ -21,9 +21,19 @@ using namespace std;
 #include "Trajet.h"
 #include "TrajetSimple.h"
 #include "TrajetCompose.h"
+#include <fstream>
 
 int main()
 {
+    // TrajetSimple *traj = new TrajetSimple("A", "B", "T1");
+    // Catalogue C = Catalogue();
+    // C.Inserer(traj);
+    //     TrajetCompose traj2= TrajetCompose("A", "B", "T2");
+    // C.Inserer(&traj2);
+    // Trajet * t=new TrajetSimple("B","J","p");
+    // if(typeid(t)==typeid(TrajetSimple*)){
+    //     cout<<"ok"<<endl;
+    // }
     cout << endl
          << "Bienvenue dans votre gestionnaire de trajets!" << endl;
     Catalogue C;
@@ -44,6 +54,7 @@ int main()
         cout << "    6: Quitter l'application" << endl;
 
         int choix;
+        
         while (true)
         {
             cin >> choix;
@@ -73,6 +84,10 @@ int main()
             cout << endl
                  << endl;
             C.Afficher();
+            // ofstream outfile("save.txt");
+            // C.SauvegardeCompose(outfile);
+            string  str;
+            C.Lire(str);
             break;
         }
 
@@ -257,7 +272,27 @@ int main()
         }
         }
     }
-    /* TrajetSimple *traj = new TrajetSimple("A", "B", "T1");
+    
+
+    /*
+    for (int i = 0; i < 2; i++) {
+        // Use typeid to determine the dynamic type of the object
+        if (typeid(C.Catal[i]) == typeid(TrajetSimple*)) {
+            // The object is of type Base
+            
+        } else if (typeid(C[i]) == typeid(TrajetCompose)) {
+            // The object is of type Derived
+            
+        }
+    }
+    */
+}
+
+
+
+    /*
+   TrajetSimple *traj = new TrajetSimple("A", "B", "T1");
+ 
     TrajetCompose trajC1 = TrajetCompose("A", "B", "T2");
     TrajetSimple *traj2 = new TrajetSimple("B", "C", "T1");
     TrajetCompose trajC2 = TrajetCompose("B", "C", "T2");
@@ -275,8 +310,9 @@ int main()
     C.Inserer(traj3);
     C.Inserer(traj4);
     C.Inserer(&trajC5);
-    C.ChercherParcoursB("A", "C"); */
+    C.ChercherParcoursB("A", "C"); 
 
+  
     /* delete traj2;
 
     delete traj3;
@@ -285,4 +321,3 @@ int main()
 
     delete traj5;
     return 0;*/
-}

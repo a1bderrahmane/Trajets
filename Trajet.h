@@ -12,7 +12,7 @@
 //---------- Interface de la classe <Trajet> (fichier Trajet.h) ----------------
 #if !defined(TRAJET_H)
 #define TRAJET_H
-
+#include <fstream>
 //--------------------------------------------------- Interfaces utilisées
 
 //------------------------------------------------------------- Constantes
@@ -32,7 +32,7 @@ class Trajet
 public:
     //----------------------------------------------------- Méthodes publiques
 
-    virtual void Afficher() const = 0;
+    virtual void Afficher() const =0;
     // Mode d'emploi :
     //Affichage d'un trajet
     
@@ -55,12 +55,12 @@ public:
     Trajet(const char *dep, const char *arr);
     // Mode d'emploi :
     //Constructeur de la classe trajet
-    
+    Trajet();
 
     virtual ~Trajet();
     // Mode d'emploi :
     //Destructeur de Trajet
-    
+    virtual void Sauvegarde(ofstream &out)const =0;
 
     //------------------------------------------------------------------ PRIVE
 
